@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="authorization" />
+        <module name="config-server" />
+        <module name="notification" />
+        <module name="entities" />
+        <module name="friend-list" />
+        <module name="user-page" />
+        <module name="eureka-server" />
+        <module name="posts" />
+        <module name="gateway" />
+        <module name="docker-compose" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="docker-compose" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authorization" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="docker-compose" options="-parameters" />
+      <module name="entities" options="" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="friend-list" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="notification" options="-parameters" />
+      <module name="posts" options="-parameters" />
+      <module name="user-page" options="-parameters" />
+    </option>
+  </component>
+</project>

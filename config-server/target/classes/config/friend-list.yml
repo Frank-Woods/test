@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: friend-list
+server:
+  port: 8085
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka
+  instance:
+    prefer-ip-address: true
