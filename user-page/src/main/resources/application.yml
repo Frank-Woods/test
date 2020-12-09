@@ -24,7 +24,7 @@ spring:
       max-file-size: 128MB
       max-request-size: 128MB
 
-post:
+user:
   upload:
     path: /D:/Program Files/Social_network/userImages
 

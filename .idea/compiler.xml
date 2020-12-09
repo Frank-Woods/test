@@ -27,7 +27,7 @@
       <module name="authorization" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="docker-compose" options="-parameters" />
-      <module name="entities" options="" />
+      <module name="entities" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="friend-list" options="-parameters" />
       <module name="gateway" options="-parameters" />
