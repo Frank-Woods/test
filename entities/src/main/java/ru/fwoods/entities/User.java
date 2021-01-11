@@ -113,6 +113,26 @@ public class User {
     )
     private Set<User> friends;
 
+    @ManyToMany(
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "incoming_friends",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id")
+    )
+    private Set<User> incoming;
+
+    @ManyToMany(
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "outgoing_friends",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id")
+    )
+    private Set<User> outgoing;
+
     public Long getId() {
         return id;
     }
@@ -231,5 +251,21 @@ public class User {
 
     public void setFriends(Set<User> friends) {
         this.friends = friends;
+    }
+
+    public Set<User> getIncoming() {
+        return incoming;
+    }
+
+    public void setIncoming(Set<User> incoming) {
+        this.incoming = incoming;
+    }
+
+    public Set<User> getOutgoing() {
+        return outgoing;
+    }
+
+    public void setOutgoing(Set<User> outgoing) {
+        this.outgoing = outgoing;
     }
 }
