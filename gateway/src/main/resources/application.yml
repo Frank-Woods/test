@@ -1,0 +1,7 @@
+user:
+  upload:
+    path: /D:/Program Files/Social_network/userImages
+
+post:
+  upload:
+    path: /D:/Program Files/Social_network/postImages

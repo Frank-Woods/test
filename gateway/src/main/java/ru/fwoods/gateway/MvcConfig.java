@@ -1,4 +1,4 @@
-package ru.fwoods.posts;
+package ru.fwoods.gateway;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +17,9 @@ import java.util.List;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
+    @Value("${user.upload.path}")
+    private String userUploadPath;
+
     @Value("${post.upload.path}")
     private String postUploadPath;
 
@@ -24,6 +27,8 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/image/userImage/**")
+                .addResourceLocations("file://" + userUploadPath + "/");
         registry.addResourceHandler("/image/postImage/**")
                 .addResourceLocations("file://" + postUploadPath + "/");
     }
