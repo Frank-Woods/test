@@ -1,19 +1,12 @@
 spring:
   application:
     name: eureka-server
-#---
-#spring:
-#  profiles: prod
-#  cloud:
-#    config:
-#      uri: http://config:8888
-#      fail-fast: true
-#---
-#spring:
-#  profiles: dev
-server:
-  port: 8761
-eureka:
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
+  profiles:
+    active: prod
+---
+spring:
+  profiles: prod
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      fail-fast: true
