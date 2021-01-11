@@ -1,44 +1,12 @@
 spring:
   application:
     name: gateway
+  profiles:
+    active: prod
 ---
 spring:
   profiles: prod
   cloud:
     config:
-      uri: http://config:8888
+      uri: http://localhost:8888/
       fail-fast: true
----
-spring:
-  profiles: dev
-  cloud:
-    gateway:
-      routes:
-        - id: authorization
-          uri: lb://AUTHORIZATION/
-          predicates:
-            - Path=/authorization/**
-        - id: notification
-          uri: lb://NOTIFICATION/
-          predicates:
-            - Path=/notification/**
-        - id: userPage
-          uri: lb://USER-PAGE/
-          predicates:
-            - Path=/user/**
-        - id: friendList
-          uri: lb://FRIEND-LIST/
-          predicates:
-            - Path=/friend/**
-        - id: posts
-          uri: lb://POSTS/
-          predicates:
-            - Path=/posts/**
-server:
-  port: 8079
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    prefer-ip-address: true

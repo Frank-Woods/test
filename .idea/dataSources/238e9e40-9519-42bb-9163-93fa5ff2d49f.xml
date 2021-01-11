@@ -943,7 +943,508 @@ APPLICATION_PASSWORD_ADMIN,AUDIT_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTI
       <ObjectGrants>SELECT,PROCESS,ALTER,SHOW DATABASES,EXECUTE,SHOW VIEW
 ALL PRIVILEGES|shop:null!
 ALL PRIVILEGES|computer\_store:null!
+ALL PRIVILEGES|social\_network:null!
 </ObjectGrants>
     </user>
+    <table id="291" parent="7" name="city"/>
+    <table id="292" parent="7" name="country"/>
+    <table id="293" parent="7" name="education"/>
+    <table id="294" parent="7" name="higher_education"/>
+    <table id="295" parent="7" name="higher_school"/>
+    <table id="296" parent="7" name="image"/>
+    <table id="297" parent="7" name="language"/>
+    <table id="298" parent="7" name="post"/>
+    <table id="299" parent="7" name="school"/>
+    <table id="300" parent="7" name="user"/>
+    <table id="301" parent="7" name="user_friends"/>
+    <table id="302" parent="7" name="user_language"/>
+    <table id="303" parent="7" name="user_roles"/>
+    <column id="304" parent="291" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="305" parent="291" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="306" parent="291" name="country_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="307" parent="291" name="FKrpd7j1p7yxr784adkx4pyepba">
+      <ColNames>country_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="308" parent="291" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="309" parent="291" name="FKrpd7j1p7yxr784adkx4pyepba">
+      <ColNames>country_id</ColNames>
+      <RefTableName>country</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="310" parent="292" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="311" parent="292" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="312" parent="292" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="313" parent="293" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="314" parent="293" name="city_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="315" parent="293" name="country_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="316" parent="293" name="school_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="317" parent="293" name="user_id">
+      <Position>5</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="318" parent="293" name="FKtox6pal5ogl2aorvcesex9hlf">
+      <ColNames>city_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="319" parent="293" name="FKdmnk9gkoo85sljvc9l1l03hqy">
+      <ColNames>country_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="320" parent="293" name="FKf51kqq9aj1hj0koa1a853cd7w">
+      <ColNames>school_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="321" parent="293" name="FKaw3ebf3585a1ndgqnk6k6hosc">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="322" parent="293" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="323" parent="293" name="FKtox6pal5ogl2aorvcesex9hlf">
+      <ColNames>city_id</ColNames>
+      <RefTableName>city</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="324" parent="293" name="FKdmnk9gkoo85sljvc9l1l03hqy">
+      <ColNames>country_id</ColNames>
+      <RefTableName>country</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="325" parent="293" name="FKf51kqq9aj1hj0koa1a853cd7w">
+      <ColNames>school_id</ColNames>
+      <RefTableName>school</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="326" parent="293" name="FKaw3ebf3585a1ndgqnk6k6hosc">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="327" parent="294" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="328" parent="294" name="city_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="329" parent="294" name="country_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="330" parent="294" name="higher_school_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="331" parent="294" name="user_id">
+      <Position>5</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="332" parent="294" name="FK1a4oqilw48hwnyr7xe70ldciq">
+      <ColNames>city_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="333" parent="294" name="FKmax30xbb3f1qky50hvbbt61qx">
+      <ColNames>country_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="334" parent="294" name="FKj57nunsu3r1k5pgmprjijr8u1">
+      <ColNames>higher_school_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="335" parent="294" name="FKnh8lb3ylmh8x9510l01w1ju76">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="336" parent="294" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="337" parent="294" name="FK1a4oqilw48hwnyr7xe70ldciq">
+      <ColNames>city_id</ColNames>
+      <RefTableName>city</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="338" parent="294" name="FKmax30xbb3f1qky50hvbbt61qx">
+      <ColNames>country_id</ColNames>
+      <RefTableName>country</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="339" parent="294" name="FKj57nunsu3r1k5pgmprjijr8u1">
+      <ColNames>higher_school_id</ColNames>
+      <RefTableName>higher_school</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="340" parent="294" name="FKnh8lb3ylmh8x9510l01w1ju76">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="341" parent="295" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="342" parent="295" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="343" parent="295" name="city_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="344" parent="295" name="FKbc202f324rbene97ttv31rme2">
+      <ColNames>city_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="345" parent="295" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="346" parent="295" name="FKbc202f324rbene97ttv31rme2">
+      <ColNames>city_id</ColNames>
+      <RefTableName>city</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="347" parent="296" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="348" parent="296" name="filename">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="349" parent="296" name="post_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <column id="350" parent="296" name="user_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="351" parent="296" name="FKe2l07hc93u2bbjnl80meu3rn4">
+      <ColNames>post_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="352" parent="296" name="FKlxnnh0ir05khn8iu9tgwh1yyk">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="353" parent="296" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="354" parent="296" name="FKe2l07hc93u2bbjnl80meu3rn4">
+      <ColNames>post_id</ColNames>
+      <RefTableName>post</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="355" parent="296" name="FKlxnnh0ir05khn8iu9tgwh1yyk">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="356" parent="297" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="357" parent="297" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="358" parent="297" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="359" parent="298" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="360" parent="298" name="date">
+      <Position>2</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="361" parent="298" name="text">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="362" parent="298" name="user_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="363" parent="298" name="FK72mt33dhhs48hf9gcqrq4fxte">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="364" parent="298" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="365" parent="298" name="FK72mt33dhhs48hf9gcqrq4fxte">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="366" parent="299" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="367" parent="299" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="368" parent="299" name="city_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="369" parent="299" name="FKayckpg460dxb87jqrmm4ek6j5">
+      <ColNames>city_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="370" parent="299" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="371" parent="299" name="FKayckpg460dxb87jqrmm4ek6j5">
+      <ColNames>city_id</ColNames>
+      <RefTableName>city</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="372" parent="300" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="373" parent="300" name="birthday">
+      <Position>2</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="374" parent="300" name="email">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="375" parent="300" name="first_name">
+      <Position>4</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="376" parent="300" name="gender">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="377" parent="300" name="info">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="378" parent="300" name="last_name">
+      <Position>7</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="379" parent="300" name="password">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="380" parent="300" name="status">
+      <Position>9</Position>
+      <DataType>varchar(40)|0s</DataType>
+    </column>
+    <column id="381" parent="300" name="status_account">
+      <Position>10</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="382" parent="300" name="status_page">
+      <Position>11</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="383" parent="300" name="city_id">
+      <Position>12</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="384" parent="300" name="FK29eqyw0gxw5r4f1ommy11nd9i">
+      <ColNames>city_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="385" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="386" parent="300" name="FK29eqyw0gxw5r4f1ommy11nd9i">
+      <ColNames>city_id</ColNames>
+      <RefTableName>city</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="387" parent="301" name="user_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="388" parent="301" name="friend_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="389" parent="301" name="FKm24u3115vx7bnje3b09oyflkd">
+      <ColNames>friend_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="390" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id
+friend_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="391" parent="301" name="FK9i7cldnk7cx2g47qex8ovm2ah">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="392" parent="301" name="FKm24u3115vx7bnje3b09oyflkd">
+      <ColNames>friend_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="393" parent="302" name="user_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="394" parent="302" name="language_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="395" parent="302" name="FK5tj1u2cplnxdoiouqvmvy3ksp">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="396" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>language_id
+user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="397" parent="302" name="FK5tj1u2cplnxdoiouqvmvy3ksp">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="398" parent="302" name="FK5dhe6kqh7ol7f48ker70e368r">
+      <ColNames>language_id</ColNames>
+      <RefTableName>language</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="399" parent="303" name="user_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="400" parent="303" name="role">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="401" parent="303" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id
+role</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="402" parent="303" name="FK55itppkw3i07do3h7qoclqd4k">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

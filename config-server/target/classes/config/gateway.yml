@@ -7,23 +7,23 @@ spring:
     gateway:
       routes:
         - id: authorization
-          uri: lb://AUTHORIZATION/
+          uri: http://localhost:8083/
           predicates:
             - Path=/authorization/**
         - id: notification
-          uri: lb://NOTIFICATION/
+          uri: http://localhost:8085/
           predicates:
             - Path=/notification/**
         - id: userPage
-          uri: lb://USER-PAGE/
+          uri: http://localhost:8082/
           predicates:
-            - Path=/userPage/**
+            - Path=/user/**
         - id: friendList
-          uri: lb://FRIEND-LIST/
+          uri: http://localhost:8084/
           predicates:
-            - Path=/friendList/**
+            - Path=/friend/**
         - id: posts
-          uri: lb://POSTS/
+          uri: http://localhost:8086/
           predicates:
             - Path=/posts/**
 eureka:
