@@ -1,5 +1,6 @@
 package ru.fwoods.friendlist;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,19 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import ru.fwoods.entities.User;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/friend")
 public class FriendListController {
+
+    @Autowired
+    private UserFriendServices userFriendServices;
 
     @GetMapping(value = "/list")
     public ModelAndView getFriendList(
             User user,
             Map<String, Object> model
     ) {
-        Set<User> friends = user.getFriends();
+        List<User> friends = userFriendServices.getFriends(user);
         model.put("friends", friends);
         ModelAndView modelAndView = new ModelAndView("friend/list", model);
         return modelAndView;
@@ -31,7 +35,7 @@ public class FriendListController {
             User user,
             Map<String, Object> model
     ) {
-        Set<User> incoming = user.getIncoming();
+        List<User> incoming = userFriendServices.getIncoming(user);
         model.put("incoming", incoming);
         ModelAndView modelAndView = new ModelAndView("friend/incoming", model);
         return modelAndView;
@@ -42,7 +46,7 @@ public class FriendListController {
             User user,
             Map<String, Object> model
     ) {
-        Set<User> outgoing = user.getOutgoing();
+        List<User> outgoing = userFriendServices.getOutgoing(user);
         model.put("outgoing", outgoing);
         ModelAndView modelAndView = new ModelAndView("friend/outgoing", model);
         return modelAndView;
@@ -53,8 +57,7 @@ public class FriendListController {
             User authUser,
             User user
     ) {
-        authUser.getOutgoing().add(user);
-        user.getIncoming().add(authUser);
+        userFriendServices.addFriend(authUser, user);
         return ResponseEntity.ok().body(null);
     }
 
@@ -63,9 +66,7 @@ public class FriendListController {
             User authUser,
             User user
     ) {
-        authUser.getIncoming().remove(user);
-        user.getOutgoing().remove(authUser);
-        authUser.getFriends().add(user);
+        userFriendServices.confirmedFriend(authUser, user);
         return ResponseEntity.ok().body(null);
     }
 
@@ -74,7 +75,7 @@ public class FriendListController {
             User authUser,
             User user
     ) {
-        authUser.getFriends().remove(user);
+        userFriendServices.deleteFriend(authUser, user);
         return ResponseEntity.ok().body(null);
     }
 }
