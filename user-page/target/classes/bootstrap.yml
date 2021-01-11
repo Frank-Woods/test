@@ -10,12 +10,3 @@ spring:
     config:
       uri: http://localhost:8888/
       fail-fast: true
-#---
-#spring:
-#  profiles: dev
-#server:
-#  port: 8082
-#eureka:
-#  client:
-#    service-url:
-#      default-zone: http://localhost:8761/eureka
